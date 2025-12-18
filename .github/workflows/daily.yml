@@ -2,7 +2,7 @@ name: Daily Test Run
 
 on:
   schedule:
-    - cron: "58 13 * * *" # once per day (12:00 UTC)
+    - cron: "4 14 * * *" # once per day (12:00 UTC)
   workflow_dispatch:
 
 jobs:
