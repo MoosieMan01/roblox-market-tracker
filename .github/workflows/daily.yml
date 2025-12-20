@@ -13,4 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node index.js
+      - run: npm install firebase-admin
+
+      - run: node script.js
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIRESTORE_JSON }}
