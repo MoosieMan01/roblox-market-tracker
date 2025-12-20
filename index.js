@@ -5,7 +5,7 @@ admin.initializeApp({ credential: admin.credential.cert(JSON.parse(process.env.F
 const db = admin.firestore();
 
 async function run() {
-  const gameID = 79546208627805
+  const placeId = 79546208627805
   const universeRes = await fetch(`https://apis.roblox.com/universes/v1/places/${placeId}/universe`);
   const universeData = await universeRes.json();
   const universeId = universeData.universeId;
