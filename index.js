@@ -23,8 +23,6 @@ async function run() {
     await historyRef.set({
     players: players,
   });
-
-  console.log(`Created collection '${collectionName}' with a document.`);
 }
 
 run().catch(console.error);
