@@ -1,6 +1,6 @@
 import admin from "firebase-admin";
 
-admin.InitializeApp({ credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT))})
+admin.initializeApp({ credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT))})
 
 const db = admin.firestore();
 
