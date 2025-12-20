@@ -19,7 +19,7 @@ async function run() {
 
   const dateStr = new Date().toISOString().split("T")[0];
 
-  const historyRef = db.collection("games").doc(gameId).collection("history").doc(dateStr); 
+  const historyRef = db.collection("games").doc(gameId.toString()).collection("history").doc(dateStr); 
     await historyRef.set({
     players: players,
   });
