@@ -17,14 +17,13 @@ async function run() {
   );
   const json = await res.json();
 
-  console.log(JSON.stringify(json, null, 2));
   const topGames = (json.collection?.items || json.games || []).map(g => ({
     placeId: g.rootPlaceId,
     playing: g.playerCount
   }));
 
   const dateStr = new Date().toISOString().split("T")[0];
-
+  console.log(topGames);
   for (const game of topGames) {
 
     const universeRes = await fetch(
