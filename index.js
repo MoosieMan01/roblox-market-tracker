@@ -17,6 +17,7 @@ async function run() {
   );
   const json = await res.json();
 
+  console.log(JSON.stringify(json, null, 2));
   const topGames = (json.collection?.items || json.games || []).map(g => ({
     placeId: g.rootPlaceId,
     playing: g.playerCount
