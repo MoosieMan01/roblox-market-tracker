@@ -23,7 +23,6 @@ async function run() {
   }));
 
   const dateStr = new Date().toISOString().split("T")[0];
-  console.log(topGames);
   for (const game of topGames) {
 
     const universeRes = await fetch(
@@ -31,6 +30,7 @@ async function run() {
     );
     const universeData = await universeRes.json();
 
+    console.log(JSON.stringify(universeData, null, 2));
     if (!universeData.universeId) continue;
     const universeId = universeData.universeId;
 
