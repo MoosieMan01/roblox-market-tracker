@@ -54,7 +54,6 @@ async function run() {
         players
       });
 
-    console.log(`Updated ${gameId}: ${players}`);
   }
 }
 
