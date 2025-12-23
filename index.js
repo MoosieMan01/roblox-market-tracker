@@ -24,6 +24,7 @@ async function run() {
   
   const batch = db.batch()
 
+  console.log(topPlaces);
   const dateStr = new Date().toISOString().split("T")[0];
   for (const place of topPlaces) {
     const ref = db
