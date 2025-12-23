@@ -19,7 +19,7 @@ async function run() {
 
   const topPlaces = (json.collection?.items || json.games || []).map(g => ({
     placeId: g.rootPlaceId,
-    playing: g.playerCount
+    players: g.playerCount
   }));
   
   const batch = db.batch()
@@ -35,7 +35,14 @@ async function run() {
 
     batch.set(ref, {players: place.players})
   }
-  batch.commit()
+  
+  try {
+    await batch.commit()
+    console.log("Batch committed.");
+  } catch(err)
+  {
+    console.error("Batch error:", err);
+  }
 }
 
 run().catch(console.error);
