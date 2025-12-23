@@ -21,18 +21,20 @@ async function run() {
     placeId: g.rootPlaceId,
     playing: g.playerCount
   }));
+  
+  const batch = db.batch()
 
   const dateStr = new Date().toISOString().split("T")[0];
   for (const place of topPlaces) {
-    await db
+    const ref = db
       .collection("places")
       .doc(place.placeId.toString())
       .collection("history")
-      .doc(dateStr)
-      .set({
-        players: place.playing
-      });
+      .doc(dateStr);
+
+    batch.set(ref, {players: place.players})
   }
+  batch.commit()
 }
 
 run().catch(console.error);
